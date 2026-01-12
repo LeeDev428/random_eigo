@@ -16,6 +16,12 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
+        }
+        
+        .login-wrapper {
+            flex: 1;
+            display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem;
@@ -75,30 +81,6 @@
             color: #2d3436;
             font-size: 1.8rem;
             margin-bottom: 1rem;
-        }
-        
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .lang-btn {
-            padding: 0.4rem 1rem;
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s;
-        }
-        
-        .lang-btn.active {
-            background: #00b894;
-            color: white;
-            border-color: #00b894;
         }
         
         .form-group {
@@ -254,6 +236,8 @@
     </style>
 </head>
 <body>
+    <x-header :showAuthButtons="false" />
+    
     <div class="login-container">
         <div class="left-panel">
             <img src="{{ asset('icon/eigo.png') }}" alt="Random Eigo Logo">
@@ -306,6 +290,7 @@
             
             <div class="register-link">
                 {{ __('messages.no_account') }}
+        </div>
                 <a href="{{ route('register') }}">{{ __('messages.register') }}</a>
             </div>
             
