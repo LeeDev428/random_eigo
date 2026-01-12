@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ __('messages.register_title') }} - Random Eigo</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -15,6 +19,13 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+        
+        .register-wrapper {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -220,7 +231,10 @@
                 height: 60px;
             }
             
-            .left-panel h1 {
+     x-header :showAuthButtons="false" />
+    
+    <div class="register-wrapper">
+        <       .left-panel h1 {
                 font-size: 1.5rem;
             }
         }
@@ -285,6 +299,7 @@
             </div>
             
             <div class="back-home">
+        </div>
                 <a href="{{ route('home') }}">← Back to Home</a>
             </div>
         </div>
