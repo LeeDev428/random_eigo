@@ -113,6 +113,17 @@
         .cta-box .btn {
             font-size: 1.2rem;
             padding: 1rem 3rem;
+            background: #00b894;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .cta-box .btn:hover {
+            background: #00a383;
         }
         
         .footer {
@@ -134,12 +145,12 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <img src="{{ asset('icon/eigo.png') }}" alt="Random Eigo Logo">
-                <div class="logo-text">
-     x-header :showAuthButtons="true" /<div class="hero-highlight">{{ __('messages.hero_subtitle') }}</div>
+    <x-header :showAuthButtons="true" />
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>{{ __('messages.hero_title') }}</h2>
+            <div class="hero-highlight">{{ __('messages.hero_subtitle') }}</div>
             
             <div class="age-box">
                 <strong>{{ __('messages.target_age') }}</strong><br>
@@ -168,7 +179,7 @@
     <section class="cta-section">
         <div class="cta-box">
             <h3>{{ __('messages.cta_title') }}</h3>
-            <a href="{{ route('register') }}" class="btn btn-primary">{{ __('messages.cta_button') }}</a>
+            <a href="{{ route('register') }}" class="btn">{{ __('messages.cta_button') }}</a>
         </div>
     </section>
     
