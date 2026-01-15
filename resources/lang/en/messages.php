@@ -4,8 +4,9 @@ return [
     // Landing Page
     'site_title' => 'Random Eigo - Online English Conversation Lessons',
     'site_subtitle' => 'For Children, Elementary, Junior High, and High School Students',
-    'hero_title' => 'English Conversation for Children',
-    'hero_subtitle' => 'Online Lessons',
+    'hero_title' => 'Learning English starts with something',
+    'hero_subtitle' => 'Random',
+    'online_english_conversation' => 'Online English Conversation',
     'target_age' => 'Target Age',
     'age_range' => '3 years old ~ Elementary, Junior High, High School',
     
