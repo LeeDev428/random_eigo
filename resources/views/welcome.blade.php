@@ -234,7 +234,12 @@
             </div>
         </div>
     </section>
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <section class="features">
         <div class="feature-card">
             <h3>{{ __('messages.feature_1_title') }}</h3>
