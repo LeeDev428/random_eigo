@@ -25,7 +25,7 @@
 <style>
     .header {
         background: white;
-        padding: 1rem 2rem;
+        padding: 0.8rem 1rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         position: sticky;
         top: 0;
@@ -39,41 +39,45 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        gap: 0.8rem;
     }
     
     .logo {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
     }
     
     .logo img {
-        height: 50px;
+        height: 45px;
         width: auto;
     }
     
     .logo-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 800;
         color: #1F6FE5;
         margin: 0;
+        line-height: 1.2;
     }
     
     .logo-text p {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         color: #666666;
         margin: 0;
         font-weight: 400;
+        line-height: 1.2;
     }
     
     .nav-buttons {
         display: flex;
-        gap: 0.8rem;
+        gap: 0.6rem;
         align-items: center;
+        flex-wrap: wrap;
     }
     
     .btn {
-        padding: 0.6rem 1.8rem;
+        padding: 0.6rem 1.5rem;
         border-radius: 50px;
         text-decoration: none;
         font-weight: 600;
@@ -81,7 +85,8 @@
         cursor: pointer;
         transition: all 0.3s ease;
         display: inline-block;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
     }
     
     .btn-primary {
@@ -123,23 +128,24 @@
     
     .lang-switcher {
         display: flex;
-        gap: 0.3rem;
+        gap: 0.2rem;
         background: #F5F5F5;
-        padding: 0.3rem;
+        padding: 0.25rem;
         border-radius: 50px;
     }
     
     .lang-btn {
-        padding: 0.4rem 1rem;
+        padding: 0.35rem 0.9rem;
         background: transparent;
         border: none;
         border-radius: 50px;
         cursor: pointer;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         text-decoration: none;
         color: #666666;
         font-weight: 500;
         transition: all 0.3s ease;
+        white-space: nowrap;
     }
     
     .lang-btn.active {
@@ -148,15 +154,103 @@
         box-shadow: 0 2px 8px rgba(0,184,107,0.25);
     }
     
-    @media (max-width: 768px) {
+    /* Tablet */
+    @media (max-width: 1024px) {
         .header-content {
-            flex-direction: column;
-            gap: 1rem;
+            gap: 0.6rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.2rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.6rem;
+        }
+    }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+        .header {
+            padding: 0.6rem 0.8rem;
+        }
+        
+        .header-content {
+            gap: 0.5rem;
+        }
+        
+        .logo {
+            gap: 8px;
+        }
+        
+        .logo img {
+            height: 35px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.55rem;
         }
         
         .nav-buttons {
-            flex-wrap: wrap;
+            width: 100%;
             justify-content: center;
+            gap: 0.4rem;
+        }
+        
+        .btn {
+            padding: 0.45rem 1rem;
+            font-size: 0.8rem;
+        }
+        
+        .lang-btn {
+            padding: 0.3rem 0.7rem;
+            font-size: 0.75rem;
+        }
+    }
+    
+    /* Extra Small Mobile */
+    @media (max-width: 480px) {
+        .header {
+            padding: 0.5rem 0.6rem;
+        }
+        
+        .logo img {
+            height: 30px;
+        }
+        
+        .logo-text h1 {
+            font-size: 0.9rem;
+        }
+        
+        .logo-text p {
+            display: none;
+        }
+        
+        .btn {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+        }
+        
+        .btn-outline {
+            display: none;
+        }
+        
+        .lang-btn {
+            padding: 0.25rem 0.6rem;
+            font-size: 0.7rem;
         }
     }
 </style>
