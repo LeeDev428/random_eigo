@@ -20,8 +20,8 @@
         
         .hero {
             background: linear-gradient(to right, rgba(135, 206, 250, 0.7) 0%, rgba(173, 216, 230, 0.6) 100%), url('{{ asset('eigolandingpageimage.jpg') }}') center/cover;
-            min-height: 600px;
-            padding: 3rem 2rem;
+            min-height: 500px;
+            padding: 3rem 2rem 2rem;
             position: relative;
             display: flex;
             align-items: center;
@@ -49,7 +49,7 @@
         
         .hero h2 {
             color: #1F6FE5;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1rem;
             line-height: 1.2;
@@ -58,7 +58,7 @@
         .hero-highlight {
             display: inline;
             color: #FF8A00;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
         }
         
@@ -66,44 +66,43 @@
             display: inline-block;
             background: white;
             color: #FF8A00;
-            padding: 0.8rem 2rem;
+            padding: 0.7rem 1.8rem;
             border-radius: 50px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin: 2rem 0;
+            margin: 1.5rem 0 1rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .age-box {
             background: white;
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .age-box strong {
             color: #222222;
-            font-size: 1rem;
+            font-size: 0.95rem;
             display: block;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
         
         .age-box span {
             color: #222222;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .features {
             max-width: 1200px;
-            margin: -80px auto 4rem;
+            margin: 3rem auto 4rem;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             position: relative;
-            z-index: 3;
         }
         
         .feature-card {
@@ -118,11 +117,6 @@
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-        }
-        
-        .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
         }
         
         .feature-card:nth-child(1) h3 { color: #00B86B; }
@@ -189,17 +183,14 @@
             text-align: center;
         }
         
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 500px;
-            }
-            
+        /* Tablet */
+        @media (max-width: 1024px) {
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .hero-highlight {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .online-badge {
@@ -207,8 +198,97 @@
             }
             
             .features {
-                margin-top: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 1.5rem;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 2rem 1rem 10rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-highlight {
+                font-size: 1.8rem;
+            }
+            
+            .online-badge {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .age-box {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .age-box strong {
+                font-size: 0.85rem;
+            }
+            
+            .age-box span {
+                font-size: 0.9rem;
+            }
+            
+            .features {
+                margin: -120px auto 3rem;
+                padding: 0 1rem;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                z-index: 3;
+            }
+            
+            .feature-card {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .feature-card p {
+                font-size: 0.95rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 1rem;
+            }
+            
+            .cta-box {
+                padding: 3rem 2rem;
+            }
+            
+            .cta-box h3 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-box .btn {
+                font-size: 1.1rem;
+                padding: 1rem 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1.5rem 1rem 8rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-highlight {
+                font-size: 1.5rem;
+            }
+            
+            .online-badge {
+                font-size: 1rem;
+                padding: 0.5rem 1.2rem;
             }
         }
     </style>
@@ -219,27 +299,21 @@
     <section class="hero">
         <div class="hero-content">
             <h2>
-                Learning English<br>
-                starts with<br>
-                something <span class="hero-highlight">ランダム</span>
+                {{ __('messages.hero_title') }}<br>
+                <span class="hero-highlight">{{ __('messages.hero_subtitle') }}</span>
             </h2>
             
             <div class="online-badge">
-                オンライン英会話
+                {{ __('messages.online_english_conversation') }}
             </div>
             
             <div class="age-box">
-                <strong>対象年齢</strong>
-                <span>3才~小学生・中学生・高校生</span>
+                <strong>{{ __('messages.target_age') }}</strong>
+                <span>{{ __('messages.age_range') }}</span>
             </div>
         </div>
     </section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <section class="features">
         <div class="feature-card">
             <h3>{{ __('messages.feature_1_title') }}</h3>
@@ -250,7 +324,7 @@
             <h3>{{ __('messages.feature_2_title') }}</h3>
             <p>{!! __('messages.feature_2_desc') !!}</p>
         </div>
-        
+
         <div class="feature-card">
             <h3>{{ __('messages.feature_3_title') }}</h3>
             <p>{!! __('messages.feature_3_desc') !!}</p>
