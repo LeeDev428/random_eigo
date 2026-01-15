@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: #F5F5F5;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -29,8 +29,8 @@
         
         .register-container {
             background: white;
-            border-radius: 30px;
-            box-shadow: 0 15px 60px rgba(0,0,0,0.08);
+            border-radius: 25px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.08);
             max-width: 1000px;
             width: 100%;
             display: grid;
@@ -39,7 +39,7 @@
         }
         
         .left-panel {
-            background: linear-gradient(135deg, #FF7A3D 0%, #FFD700 100%);
+            background: linear-gradient(135deg, #FF8A00 0%, #FFD400 100%);
             padding: 3rem;
             display: flex;
             flex-direction: column;
@@ -54,12 +54,9 @@
         .left-panel::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><polygon fill="white" fill-opacity="0.03" points="50,10 90,90 10,90"/></svg>');
-            animation: float 15s linear infinite reverse;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><polygon fill="white" fill-opacity="0.05" points="50,10 90,90 10,90"/></svg>');
         }
         
         @keyframes float {
@@ -115,37 +112,39 @@
         .form-group input {
             width: 100%;
             padding: 0.9rem 1.2rem;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            background: #f8f9fa;
+            background: white;
+            color: #222222;
         }
         
         .form-group input:focus {
             outline: none;
-            border-color: #FF7A3D;
+            border-color: #FF8A00;
             background: white;
-            box-shadow: 0 0 0 4px rgba(255,122,61,0.1);
+            box-shadow: 0 0 0 3px rgba(255,138,0,0.1);
         }
         
         .btn {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, #FF7A3D 0%, #FFD700 100%);
+            background: #FF8A00;
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255,122,61,0.3);
+            box-shadow: 0 4px 15px rgba(255,138,0,0.25);
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255,122,61,0.4);
+            box-shadow: 0 6px 20px rgba(255,138,0,0.35);
+            background: #e67d00;
         }
         
         .divider {
@@ -180,14 +179,14 @@
         }
         
         .login-link a {
-            color: #4A9DEC;
+            color: #1F6FE5;
             text-decoration: none;
             font-weight: 700;
         }
         
         .login-link a:hover {
             text-decoration: underline;
-            color: #00D98E;
+            color: #00B86B;
         }
         
         .back-home {
