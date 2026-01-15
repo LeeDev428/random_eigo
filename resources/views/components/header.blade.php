@@ -26,11 +26,10 @@
     .header {
         background: white;
         padding: 1rem 2rem;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         position: sticky;
         top: 0;
         z-index: 100;
-        backdrop-filter: blur(10px);
     }
     
     .header-content {
@@ -49,25 +48,22 @@
     }
     
     .logo img {
-        height: 55px;
+        height: 50px;
         width: auto;
     }
     
     .logo-text h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 800;
-        background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 50%, #FF7A3D 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #1F6FE5;
         margin: 0;
     }
     
     .logo-text p {
-        font-size: 0.75rem;
-        color: #6c757d;
+        font-size: 0.7rem;
+        color: #666666;
         margin: 0;
-        font-weight: 500;
+        font-weight: 400;
     }
     
     .nav-buttons {
@@ -77,7 +73,7 @@
     }
     
     .btn {
-        padding: 0.6rem 1.6rem;
+        padding: 0.6rem 1.8rem;
         border-radius: 50px;
         text-decoration: none;
         font-weight: 600;
@@ -89,43 +85,46 @@
     }
     
     .btn-primary {
-        background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 100%);
+        background: #00B86B;
         color: white;
-        box-shadow: 0 4px 15px rgba(0,217,142,0.2);
+        box-shadow: 0 3px 12px rgba(0,184,107,0.25);
     }
     
     .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,217,142,0.3);
+        box-shadow: 0 5px 18px rgba(0,184,107,0.35);
+        background: #00a05d;
     }
     
     .btn-secondary {
-        background: linear-gradient(135deg, #FF7A3D 0%, #FFD700 100%);
+        background: #FF8A00;
         color: white;
-        box-shadow: 0 4px 15px rgba(255,122,61,0.2);
+        box-shadow: 0 3px 12px rgba(255,138,0,0.25);
     }
     
     .btn-secondary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(255,122,61,0.3);
+        box-shadow: 0 5px 18px rgba(255,138,0,0.35);
+        background: #e67d00;
     }
     
     .btn-outline {
         background: white;
-        color: #4A9DEC;
-        border: 2px solid #4A9DEC;
+        color: #222222;
+        border: 2px solid #CCCCCC;
     }
     
     .btn-outline:hover {
-        background: #4A9DEC;
-        color: white;
+        background: #F5F5F5;
+        border-color: #1F6FE5;
+        color: #1F6FE5;
         transform: translateY(-2px);
     }
     
     .lang-switcher {
         display: flex;
-        gap: 0.4rem;
-        background: #f8f9fa;
+        gap: 0.3rem;
+        background: #F5F5F5;
         padding: 0.3rem;
         border-radius: 50px;
     }
@@ -138,15 +137,15 @@
         cursor: pointer;
         font-size: 0.9rem;
         text-decoration: none;
-        color: #6c757d;
-        font-weight: 600;
+        color: #666666;
+        font-weight: 500;
         transition: all 0.3s ease;
     }
     
     .lang-btn.active {
-        background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 100%);
+        background: #00B86B;
         color: white;
-        box-shadow: 0 2px 10px rgba(0,217,142,0.2);
+        box-shadow: 0 2px 8px rgba(0,184,107,0.25);
     }
     
     @media (max-width: 768px) {
