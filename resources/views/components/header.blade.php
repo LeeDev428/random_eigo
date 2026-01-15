@@ -26,10 +26,11 @@
     .header {
         background: white;
         padding: 1rem 2rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         position: sticky;
         top: 0;
         z-index: 100;
+        backdrop-filter: blur(10px);
     }
     
     .header-content {
@@ -44,98 +45,119 @@
     .logo {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
     
     .logo img {
-        height: 50px;
+        height: 55px;
         width: auto;
     }
     
     .logo-text h1 {
-        font-size: 1.5rem;
-        color: #e74c3c;
+        font-size: 1.6rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 50%, #FF7A3D 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         margin: 0;
     }
     
     .logo-text p {
         font-size: 0.75rem;
-        color: #666;
+        color: #6c757d;
         margin: 0;
+        font-weight: 500;
     }
     
     .nav-buttons {
         display: flex;
-        gap: 1rem;
+        gap: 0.8rem;
         align-items: center;
     }
     
     .btn {
-        padding: 0.5rem 1.5rem;
-        border-radius: 25px;
+        padding: 0.6rem 1.6rem;
+        border-radius: 50px;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 600;
         border: none;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: all 0.3s ease;
         display: inline-block;
+        font-size: 0.95rem;
     }
     
     .btn-primary {
-        background: #00b894;
+        background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 100%);
         color: white;
+        box-shadow: 0 4px 15px rgba(0,217,142,0.2);
     }
     
     .btn-primary:hover {
-        background: #00a383;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,217,142,0.3);
     }
     
     .btn-secondary {
-        background: #e74c3c;
+        background: linear-gradient(135deg, #FF7A3D 0%, #FFD700 100%);
         color: white;
+        box-shadow: 0 4px 15px rgba(255,122,61,0.2);
     }
     
     .btn-secondary:hover {
-        background: #c0392b;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255,122,61,0.3);
     }
     
     .btn-outline {
         background: white;
-        color: #00b894;
-        border: 2px solid #00b894;
+        color: #4A9DEC;
+        border: 2px solid #4A9DEC;
     }
     
     .btn-outline:hover {
-        background: #00b894;
+        background: #4A9DEC;
         color: white;
+        transform: translateY(-2px);
     }
     
     .lang-switcher {
         display: flex;
-        gap: 0.5rem;
+        gap: 0.4rem;
+        background: #f8f9fa;
+        padding: 0.3rem;
+        border-radius: 50px;
     }
     
     .lang-btn {
-        padding: 0.3rem 0.8rem;
-        background: #f8f9fa;
-        border: 1px solid #ddd;
-        border-radius: 5px;
+        padding: 0.4rem 1rem;
+        background: transparent;
+        border: none;
+        border-radius: 50px;
         cursor: pointer;
         font-size: 0.9rem;
         text-decoration: none;
-        color: #333;
+        color: #6c757d;
+        font-weight: 600;
+        transition: all 0.3s ease;
     }
     
     .lang-btn.active {
-        background: #00b894;
+        background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 100%);
         color: white;
-        border-color: #00b894;
+        box-shadow: 0 2px 10px rgba(0,217,142,0.2);
     }
     
     @media (max-width: 768px) {
         .header-content {
             flex-direction: column;
             gap: 1rem;
+        }
+        
+        .nav-buttons {
+            flex-wrap: wrap;
+            justify-content: center;
         }
     }
 </style>
