@@ -66,18 +66,18 @@
             display: inline-block;
             background: white;
             color: #FF8A00;
-            padding: 0.7rem 1.8rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin: 1.5rem 0 1rem;
+            margin: 1.2rem 0 0.8rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .age-box {
             background: white;
             display: inline-block;
-            padding: 0.8rem 1.8rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
             margin-top: 0.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -85,14 +85,15 @@
         
         .age-box strong {
             color: #222222;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             display: block;
             margin-bottom: 0.2rem;
+            font-weight: 600;
         }
         
         .age-box span {
             color: #222222;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .features {
@@ -194,7 +195,12 @@
             }
             
             .online-badge {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
+                padding: 0.5rem 1.3rem;
+            }
+            
+            .age-box {
+                padding: 0.5rem 1.3rem;
             }
             
             .features {
@@ -207,36 +213,37 @@
         @media (max-width: 768px) {
             .hero {
                 min-height: auto;
-                padding: 2rem 1rem 10rem;
+                padding: 2rem 1rem 2rem;
             }
             
             .hero h2 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .hero-highlight {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .online-badge {
-                font-size: 1.1rem;
-                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+                padding: 0.45rem 1.2rem;
+                margin: 1rem 0 0.6rem;
             }
             
             .age-box {
-                padding: 0.7rem 1.5rem;
+                padding: 0.5rem 1.2rem;
             }
             
             .age-box strong {
-                font-size: 0.85rem;
+                font-size: 0.75rem;
             }
             
             .age-box span {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
             
             .features {
-                margin: -120px auto 3rem;
+                margin: 2rem auto 3rem;
                 padding: 0 1rem;
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -244,15 +251,15 @@
             }
             
             .feature-card {
-                padding: 2.5rem 1.5rem;
+                padding: 2rem 1.5rem;
             }
             
             .feature-card h3 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .feature-card p {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             
             .cta-section {
@@ -260,35 +267,77 @@
             }
             
             .cta-box {
-                padding: 3rem 2rem;
+                padding: 2.5rem 1.5rem;
             }
             
             .cta-box h3 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .cta-box .btn {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 padding: 1rem 2.5rem;
             }
         }
         
         @media (max-width: 480px) {
             .hero {
-                padding: 1.5rem 1rem 8rem;
+                padding: 1.5rem 0.8rem 2rem;
             }
             
             .hero h2 {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             .hero-highlight {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             .online-badge {
-                font-size: 1rem;
-                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+            }
+            
+            .age-box {
+                padding: 0.45rem 1rem;
+            }
+            
+            .age-box strong {
+                font-size: 0.7rem;
+            }
+            
+            .age-box span {
+                font-size: 0.75rem;
+            }
+            
+            .features {
+                margin: 1.5rem auto 2rem;
+                padding: 0 0.8rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem 1.2rem;
+            }
+            
+            .feature-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .feature-card p {
+                font-size: 0.85rem;
+            }
+            
+            .cta-box {
+                padding: 2rem 1.2rem;
+            }
+            
+            .cta-box h3 {
+                font-size: 1.2rem;
+            }
+            
+            .cta-box .btn {
+                font-size: 0.95rem;
+                padding: 0.9rem 2rem;
             }
         }
     </style>
