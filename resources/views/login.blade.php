@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -29,8 +29,8 @@
         
         .login-container {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 30px;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.08);
             max-width: 1000px;
             width: 100%;
             display: grid;
@@ -39,7 +39,7 @@
         }
         
         .left-panel {
-            background: linear-gradient(135deg, #00b894 0%, #00a383 100%);
+            background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 100%);
             padding: 3rem;
             display: flex;
             flex-direction: column;
@@ -47,6 +47,24 @@
             align-items: center;
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle fill="white" fill-opacity="0.03" cx="50" cy="50" r="40"/></svg>');
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
         
         .left-panel img {
@@ -96,16 +114,19 @@
         
         .form-group input {
             width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px solid #dfe6e9;
-            border-radius: 8px;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
         }
         
         .form-group input:focus {
             outline: none;
-            border-color: #00b894;
+            border-color: #00D98E;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0,217,142,0.1);
         }
         
         .form-options {
@@ -127,29 +148,33 @@
         }
         
         .forgot-link {
-            color: #00b894;
+            color: #4A9DEC;
             text-decoration: none;
+            font-weight: 600;
         }
         
         .forgot-link:hover {
             text-decoration: underline;
+            color: #00D98E;
         }
         
         .btn {
             width: 100%;
             padding: 1rem;
-            background: #00b894;
+            background: linear-gradient(135deg, #00D98E 0%, #4A9DEC 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,217,142,0.3);
         }
         
         .btn:hover {
-            background: #00a383;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,217,142,0.4);
         }
         
         .divider {
@@ -184,13 +209,14 @@
         }
         
         .register-link a {
-            color: #e74c3c;
+            color: #FF7A3D;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
         }
         
         .register-link a:hover {
             text-decoration: underline;
+            color: #FFD700;
         }
         
         .back-home {
