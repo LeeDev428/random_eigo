@@ -4,8 +4,9 @@ return [
     // Landing Page
     'site_title' => 'ランダムエイゴ - オンライン英会話レッスン',
     'site_subtitle' => '幼児・小学生・中高生まで子供オンライン英会話・英語学習のSレッスン',
-    'hero_title' => '子供専用',
-    'hero_subtitle' => 'オンライン英会話',
+    'hero_title' => 'Learning English starts with something',
+    'hero_subtitle' => 'ランダム',
+    'online_english_conversation' => 'オンライン英会話',
     'target_age' => '対象年齢',
     'age_range' => '3才～小学生・中学生・高校生',
     
