@@ -5,11 +5,13 @@
 
 @section('styles')
 <style>
+    /* Stats Grid */
     .stats-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
         margin-bottom: 2rem;
+        width: 100%;
     }
     
     .stat-card {
@@ -17,6 +19,7 @@
         padding: 1.5rem;
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        box-sizing: border-box;
     }
     
     .stat-header {
@@ -33,7 +36,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        flex-shrink: 0;
     }
     
     .stat-badge {
@@ -41,12 +44,14 @@
         border-radius: 20px;
         font-size: 0.85rem;
         font-weight: 600;
+        white-space: nowrap;
     }
     
     .stat-value {
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
+        line-height: 1;
     }
     
     .stat-label {
@@ -54,10 +59,12 @@
         font-size: 0.95rem;
     }
     
+    /* Content Grid */
     .content-grid {
         display: grid;
         grid-template-columns: 1fr 400px;
         gap: 2rem;
+        width: 100%;
     }
     
     .section-card {
@@ -65,6 +72,7 @@
         padding: 2rem;
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        box-sizing: border-box;
     }
     
     .section-header {
@@ -77,8 +85,10 @@
     .section-title {
         font-size: 1.4rem;
         font-weight: 700;
+        margin: 0;
     }
     
+    /* Lesson Items */
     .lesson-item {
         display: flex;
         gap: 1rem;
@@ -86,6 +96,11 @@
         border: 2px solid #E2E8F0;
         border-radius: 12px;
         margin-bottom: 1rem;
+        box-sizing: border-box;
+    }
+    
+    .lesson-item:last-child {
+        margin-bottom: 0;
     }
     
     .lesson-avatar {
@@ -108,6 +123,7 @@
     
     .lesson-details {
         flex: 1;
+        min-width: 0;
     }
     
     .lesson-title {
@@ -126,6 +142,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        flex-shrink: 0;
     }
     
     .time-label {
@@ -142,6 +159,7 @@
         display: flex;
         gap: 0.5rem;
         margin-top: 0.5rem;
+        flex-wrap: wrap;
     }
     
     .btn {
@@ -153,6 +171,7 @@
         transition: all 0.3s;
         text-decoration: none;
         display: inline-block;
+        font-size: 0.9rem;
     }
     
     .btn-primary {
@@ -174,6 +193,7 @@
         background: #FEE;
     }
     
+    /* Quick Actions */
     .quick-actions {
         background: #2D3748;
         color: white;
@@ -198,6 +218,10 @@
         color: white;
     }
     
+    .action-item:last-child {
+        margin-bottom: 0;
+    }
+    
     .action-item:hover {
         background: #5A6778;
         transform: translateX(5px);
@@ -210,7 +234,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
         flex-shrink: 0;
     }
     
@@ -228,21 +251,21 @@
     
     .action-content h4 {
         font-size: 1rem;
-        margin-bottom: 0.2rem;
+        margin: 0 0 0.2rem 0;
     }
     
     .action-content p {
         font-size: 0.85rem;
         color: #CBD5E0;
+        margin: 0;
     }
     
+    /* Responsive Design */
     @media (max-width: 1200px) {
         .content-grid {
             grid-template-columns: 1fr;
         }
-    }
-    
-    @media (max-width: 1024px) {
+        
         .stats-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -251,6 +274,61 @@
     @media (max-width: 768px) {
         .stats-grid {
             grid-template-columns: 1fr;
+        }
+        
+        .lesson-item {
+            flex-direction: column;
+            padding: 1rem;
+        }
+        
+        .lesson-time {
+            text-align: left;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-card {
+            padding: 1.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .stat-card {
+            padding: 1rem;
+        }
+        
+        .stat-value {
+            font-size: 1.75rem;
+        }
+        
+        .section-card {
+            padding: 1rem;
+        }
+        
+        .lesson-item {
+            padding: 0.75rem;
+        }
+        
+        .lesson-actions {
+            flex-direction: column;
+        }
+        
+        .btn {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .action-item {
+            padding: 1rem;
         }
     }
 </style>
