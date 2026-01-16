@@ -255,8 +255,8 @@
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-header">
-                <div class="stat-icon" style="background: #EBF5FF;">
-                    📖
+                <div class="stat-icon" style="background: #DBEAFE;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #C3F4D8; color: #00B86B;">
                     Active
@@ -269,9 +269,9 @@
         <div class="stat-card">
             <div class="stat-header">
                 <div class="stat-icon" style="background: #FFF3E0;">
-                    ⏱️
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
-                <div class="stat-badge" style="background: #E0F2FE; color: #3B82F6;">
+                <div class="stat-badge" style="background: #FFE8CC; color: #FF8A00;">
                     36 hrs
                 </div>
             </div>
@@ -282,7 +282,7 @@
         <div class="stat-card">
             <div class="stat-header">
                 <div class="stat-icon" style="background: #E8F5E9;">
-                    ✅
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00B86B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #FEF3C7; color: #D97706;">
                     +2
@@ -295,9 +295,16 @@
         <div class="stat-card">
             <div class="stat-header">
                 <div class="stat-icon" style="background: #EDE9FE;">
-                    📈
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #DBEAFE; color: #3B82F6;">
+                    B2
+                </div>
+            </div>
+            <div class="stat-value">B1+</div>
+            <div class="stat-label">Current Level</div>
+        </div>
+    </div>
                     B2
                 </div>
             </div>
@@ -353,7 +360,7 @@
             
             <a href="{{ route('student.lessons.book') }}" class="action-item">
                 <div class="action-icon orange">
-                    ➕
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
                 </div>
                 <div class="action-content">
                     <h4>Book New Lesson</h4>
@@ -363,7 +370,7 @@
             
             <a href="{{ route('student.materials') }}" class="action-item">
                 <div class="action-icon blue">
-                    📥
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                 </div>
                 <div class="action-content">
                     <h4>Download Materials</h4>
@@ -373,7 +380,7 @@
             
             <a href="{{ route('student.contact') }}" class="action-item">
                 <div class="action-icon green">
-                    💬
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 </div>
                 <div class="action-content">
                     <h4>Get Help</h4>
