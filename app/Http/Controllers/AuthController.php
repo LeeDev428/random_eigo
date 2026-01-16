@@ -23,7 +23,14 @@ class AuthController extends Controller
         
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            
+            // Redirect based on user role
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } else {
+                return redirect()->route('student.dashboard');
+            }
         }
         
         return back()->withErrors([
@@ -48,12 +55,13 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'role' => 'student', // Default role
             'locale' => session('locale', 'ja'), // Default to Japanese
         ]);
         
         Auth::login($user);
         
-        return redirect('/');
+        return redirect()->route('student.dashboard');
     }
     
     public function logout(Request $request)
