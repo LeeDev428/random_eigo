@@ -70,12 +70,20 @@
         </a>
         
         <!-- Logout -->
-        <form method="POST" action="{{ route('logout') }}" style="margin-top: 1rem;">
+        <form method="POST" action="{{ route('logout') }}" id="logout-form-student" style="margin-top: 1rem;">
             @csrf
-            <button type="submit" class="nav-item" style="width: 100%; background: none; border: none; text-align: left;">
+            <button type="button" onclick="confirmLogout('student')" class="nav-item" style="width: 100%; background: none; border: none; text-align: left;">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
                 <span>Logout</span>
             </button>
         </form>
     </nav>
 </div>
+
+<script>
+function confirmLogout(role) {
+    if (confirm('Are you sure you want to logout?')) {
+        document.getElementById('logout-form-' + role).submit();
+    }
+}
+</script>
