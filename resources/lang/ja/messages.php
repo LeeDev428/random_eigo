@@ -106,4 +106,15 @@ return [
     'access_course_resources' => 'コースリソースにアクセス',
     'get_help' => 'ヘルプを取得',
     'contact_support_team' => 'サポートチームに連絡',
+    
+    // Sidebar Navigation - Student
+    'courses_payment' => 'コース & 支払い',
+    'lesson_history' => 'レッスン履歴',
+    'my_profile' => 'マイプロフィール',
+    'contact_us' => 'お問い合わせ',
+    
+    // Common Messages
+    'confirm_logout' => 'ログアウトしてもよろしいですか？',
+    'today' => '今日',
+    'welcome_back_student' => 'おかえりなさい！学習を続ける準備はできていますか？',
 ];
