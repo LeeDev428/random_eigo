@@ -135,7 +135,31 @@
             justify-content: center;
         }
         
-        .notification-badge {
+        .language-switcher {
+            display: flex;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: #F8FAFC;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid #E2E8F0;
+        }
+        
+        .lang-btn:hover {
+            background: #F1F5F9;
+        }
+        
+        .content-area {
             position: absolute;
             top: -5px;
             right: -5px;
@@ -193,6 +217,14 @@
                     <p>@yield('page-subtitle', date('l, F d, Y'))</p>
                 </div>
                 <div class="topbar-right">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <a href="{{ route('lang.switch', app()->getLocale() == 'en' ? 'ja' : 'en') }}" class="lang-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                            <span>{{ app()->getLocale() == 'en' ? '日本語' : 'English' }}</span>
+                        </a>
+                    </div>
+                    
                     <button class="notification-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
                         <span class="notification-badge">2</span>
