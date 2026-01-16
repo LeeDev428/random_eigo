@@ -218,8 +218,8 @@
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-header">
-                <div class="stat-icon" style="background: #EBF5FF;">
-                    📖
+                <div class="stat-icon" style="background: #DBEAFE;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #E0F7EE; color: #00B86B;">
                     This Month
@@ -232,7 +232,7 @@
         <div class="stat-card">
             <div class="stat-header">
                 <div class="stat-icon" style="background: #EDE9FE;">
-                    👥
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #DBEAFE; color: #3B82F6;">
                     Active
@@ -245,9 +245,29 @@
         <div class="stat-card">
             <div class="stat-header">
                 <div class="stat-icon" style="background: #FFF3E0;">
-                    📋
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H2v7l6.29 6.29c.94.94 2.48.94 3.42 0l3.58-3.58c.94-.94.94-2.48 0-3.42L9 5Z"/><path d="M6 9.01V9"/><path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #FEF3C7; color: #D97706;">
+                    Pending
+                </div>
+            </div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">Assignments to Grade</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: #FCE7F3;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="stat-badge" style="background: #E0E7FF; color: #6366F1;">
+                    Average
+                </div>
+            </div>
+            <div class="stat-value">4.8</div>
+            <div class="stat-label">Student Rating</div>
+        </div>
+    </div>
                     Pending
                 </div>
             </div>
