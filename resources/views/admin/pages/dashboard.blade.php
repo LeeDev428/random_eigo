@@ -1,0 +1,334 @@
+@extends('admin.layouts.app')
+
+@section('page-title', 'Dashboard')
+@section('page-subtitle', date('l, F d, Y'))
+
+@section('styles')
+<style>
+    .welcome-banner {
+        background: linear-gradient(135deg, #00B86B 0%, #00915A 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        color: white;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(0,184,107,0.2);
+    }
+    
+    .welcome-banner h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .welcome-banner p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        border: 1px solid #E2E8F0;
+    }
+    
+    .stat-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+    
+    .stat-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        color: #1E293B;
+    }
+    
+    .stat-label {
+        color: #64748B;
+        font-size: 0.9rem;
+    }
+    
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 2rem;
+    }
+    
+    .section-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        border: 1px solid #E2E8F0;
+    }
+    
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1E293B;
+    }
+    
+    .view-all-link {
+        color: #00B86B;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    .schedule-item {
+        padding: 1.2rem;
+        border-left: 3px solid #00B86B;
+        background: #F8FAFC;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .schedule-item.blue {
+        border-left-color: #3B82F6;
+    }
+    
+    .schedule-time {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .time-label {
+        font-weight: 700;
+        color: #00B86B;
+        font-size: 1rem;
+    }
+    
+    .time-badge {
+        padding: 0.2rem 0.75rem;
+        background: #E0F7EE;
+        color: #00B86B;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .schedule-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: #1E293B;
+    }
+    
+    .schedule-description {
+        color: #64748B;
+        font-size: 0.9rem;
+    }
+    
+    .announcement-item {
+        padding: 1.2rem;
+        border-left: 3px solid #3B82F6;
+        background: #F8FAFC;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .announcement-item.orange {
+        border-left-color: #FF8A00;
+    }
+    
+    .announcement-title {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        color: #1E293B;
+    }
+    
+    .announcement-meta {
+        color: #64748B;
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .announcement-description {
+        color: #475569;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 1200px) {
+        .content-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .welcome-banner h2 {
+            font-size: 1.5rem;
+        }
+        
+        .welcome-banner p {
+            font-size: 1rem;
+        }
+    }
+</style>
+@endsection
+
+@section('content')
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+        <h2>Welcome back, Ms. Sarah! 👋</h2>
+        <p>You have 4 classes scheduled for today. Keep up the great work!</p>
+    </div>
+    
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: #EBF5FF;">
+                    📖
+                </div>
+                <div class="stat-badge" style="background: #E0F7EE; color: #00B86B;">
+                    This Month
+                </div>
+            </div>
+            <div class="stat-value">156</div>
+            <div class="stat-label">Lessons Conducted</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: #EDE9FE;">
+                    👥
+                </div>
+                <div class="stat-badge" style="background: #DBEAFE; color: #3B82F6;">
+                    Active
+                </div>
+            </div>
+            <div class="stat-value">48</div>
+            <div class="stat-label">Total Students</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: #FFF3E0;">
+                    📋
+                </div>
+                <div class="stat-badge" style="background: #FEF3C7; color: #D97706;">
+                    Pending
+                </div>
+            </div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">Assignments to Grade</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-header">
+                <div class="stat-icon" style="background: #FCE7F3;">
+                    ⭐
+                </div>
+                <div class="stat-badge" style="background: #E0E7FF; color: #6366F1;">
+                    Average
+                </div>
+            </div>
+            <div class="stat-value">4.8</div>
+            <div class="stat-label">Student Rating</div>
+        </div>
+    </div>
+    
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+        <!-- Today's Schedule -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2 class="section-title">Today's Schedule</h2>
+                <a href="{{ route('admin.schedule') }}" class="view-all-link">View All</a>
+            </div>
+            
+            <div class="schedule-item">
+                <div class="schedule-time">
+                    <span class="time-label">8:00 - 9:30 AM</span>
+                    <span class="time-badge">Online</span>
+                </div>
+                <div class="schedule-title">Business English - Advanced</div>
+                <div class="schedule-description">Presentations & Negotiations</div>
+            </div>
+            
+            <div class="schedule-item blue">
+                <div class="schedule-time">
+                    <span class="time-label" style="color: #3B82F6;">10:00 - 11:30 AM</span>
+                    <span class="time-badge" style="background: #DBEAFE; color: #3B82F6;">Online</span>
+                </div>
+                <div class="schedule-title">IELTS Preparation</div>
+                <div class="schedule-description">Speaking Practice Session</div>
+            </div>
+            
+            <div class="schedule-item">
+                <div class="schedule-time">
+                    <span class="time-label">2:00 - 3:30 PM</span>
+                    <span class="time-badge">Online</span>
+                </div>
+                <div class="schedule-title">Grammar Workshop</div>
+                <div class="schedule-description">Advanced Tenses Review</div>
+            </div>
+        </div>
+        
+        <!-- Announcements -->
+        <div class="section-card">
+            <div class="section-header">
+                <h2 class="section-title">Announcements</h2>
+            </div>
+            
+            <div class="announcement-item">
+                <div class="announcement-title">Staff Meeting</div>
+                <div class="announcement-meta">Friday, 3:00 PM - Conference Room A</div>
+                <div class="announcement-description">Monthly review and planning session</div>
+            </div>
+            
+            <div class="announcement-item orange">
+                <div class="announcement-title">Grade Submission Deadline</div>
+                <div class="announcement-meta">Submit Q2 grades by Dec 15</div>
+                <div class="announcement-description">Please complete all pending evaluations</div>
+            </div>
+            
+            <div class="announcement-item">
+                <div class="announcement-title">New Course Materials</div>
+                <div class="announcement-meta">Updated resources available</div>
+                <div class="announcement-description">Business English module has been updated</div>
+            </div>
+        </div>
+    </div>
+@endsection
