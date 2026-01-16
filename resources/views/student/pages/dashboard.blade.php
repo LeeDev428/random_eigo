@@ -240,7 +240,9 @@
         .content-grid {
             grid-template-columns: 1fr;
         }
-        
+    }
+    
+    @media (max-width: 1024px) {
         .stats-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -263,11 +265,11 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #C3F4D8; color: #00B86B;">
-                    Active
+                    {{ __('messages.active') }}
                 </div>
             </div>
             <div class="stat-value">{{ $stats['lessons_completed'] }}</div>
-            <div class="stat-label">Lessons Completed</div>
+            <div class="stat-label">{{ __('messages.lessons_completed') }}</div>
         </div>
         
         <div class="stat-card">
@@ -280,7 +282,7 @@
                 </div>
             </div>
             <div class="stat-value">{{ $stats['credits_remaining'] }}</div>
-            <div class="stat-label">Credits Remaining</div>
+            <div class="stat-label">{{ __('messages.credits_remaining') }}</div>
         </div>
         
         <div class="stat-card">
@@ -293,7 +295,7 @@
                 </div>
             </div>
             <div class="stat-value">{{ $stats['certificates_earned'] }}</div>
-            <div class="stat-label">Certificates Earned</div>
+            <div class="stat-label">{{ __('messages.certificates_earned') }}</div>
         </div>
         
         <div class="stat-card">
@@ -306,7 +308,7 @@
                 </div>
             </div>
             <div class="stat-value">{{ $stats['current_level'] }}</div>
-            <div class="stat-label">Current Level</div>
+            <div class="stat-label">{{ __('messages.current_level') }}</div>
         </div>
     </div>
     
@@ -315,7 +317,7 @@
         <!-- Upcoming Lessons -->
         <div class="section-card">
             <div class="section-header">
-                <h2 class="section-title">Upcoming Lessons</h2>
+                <h2 class="section-title">{{ __('messages.upcoming_lessons') }}</h2>
             </div>
             
             @forelse($upcomingLessons as $lesson)
@@ -323,7 +325,7 @@
                 <div class="lesson-avatar {{ $lesson['color'] == 'green' ? 'green' : '' }}">{{ $lesson['teacher_initials'] }}</div>
                 <div class="lesson-details">
                     <div class="lesson-title">{{ $lesson['title'] }}</div>
-                    <div class="lesson-teacher">with {{ $lesson['teacher_name'] }}</div>
+                    <div class="lesson-teacher">{{ __('messages.with') }} {{ $lesson['teacher_name'] }}</div>
                 </div>
                 <div class="lesson-time">
                     <div class="time-label">{{ $lesson['date'] }}</div>
@@ -335,21 +337,21 @@
                 </div>
             </div>
             @empty
-            <p style="text-align: center; color: #718096; padding: 2rem;">No upcoming lessons scheduled</p>
+            <p style="text-align: center; color: #718096; padding: 2rem;">{{ __('messages.no_upcoming_lessons') }}</p>
             @endforelse
         </div>
         
         <!-- Quick Actions -->
         <div class="section-card quick-actions">
-            <h2 class="section-title">Quick Actions</h2>
+            <h2 class="section-title">{{ __('messages.quick_actions') }}</h2>
             
             <a href="{{ route('student.lessons.book') }}" class="action-item">
                 <div class="action-icon orange">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
                 </div>
                 <div class="action-content">
-                    <h4>Book New Lesson</h4>
-                    <p>Find available teachers</p>
+                    <h4>{{ __('messages.book_new_lesson') }}</h4>
+                    <p>{{ __('messages.find_available_teachers') }}</p>
                 </div>
             </a>
             
@@ -358,8 +360,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                 </div>
                 <div class="action-content">
-                    <h4>Download Materials</h4>
-                    <p>Access course resources</p>
+                    <h4>{{ __('messages.download_materials') }}</h4>
+                    <p>{{ __('messages.access_course_resources') }}</p>
                 </div>
             </a>
             
@@ -368,8 +370,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 </div>
                 <div class="action-content">
-                    <h4>Get Help</h4>
-                    <p>Contact support team</p>
+                    <h4>{{ __('messages.get_help') }}</h4>
+                    <p>{{ __('messages.contact_support_team') }}</p>
                 </div>
             </a>
         </div>
