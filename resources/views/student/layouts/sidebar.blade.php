@@ -26,10 +26,10 @@
         <div class="progress-bar">
             <div class="progress-label">
                 <span>Course Progress</span>
-                <span>75%</span>
+                <span>{{ isset($stats) ? $stats['course_progress'] : 75 }}%</span>
             </div>
             <div class="progress-track">
-                <div class="progress-fill" style="width: 75%"></div>
+                <div class="progress-fill" style="width: {{ isset($stats) ? $stats['course_progress'] : 75 }}%"></div>
             </div>
         </div>
     </div>
