@@ -318,37 +318,25 @@
                 <h2 class="section-title">Upcoming Lessons</h2>
             </div>
             
+            @forelse($upcomingLessons as $lesson)
             <div class="lesson-item">
-                <div class="lesson-avatar">JM</div>
+                <div class="lesson-avatar {{ $lesson['color'] == 'green' ? 'green' : '' }}">{{ $lesson['teacher_initials'] }}</div>
                 <div class="lesson-details">
-                    <div class="lesson-title">Business English Conversation</div>
-                    <div class="lesson-teacher">with James Miller</div>
+                    <div class="lesson-title">{{ $lesson['title'] }}</div>
+                    <div class="lesson-teacher">with {{ $lesson['teacher_name'] }}</div>
                 </div>
                 <div class="lesson-time">
-                    <div class="time-label">Tomorrow</div>
-                    <div class="time-value">10:00 AM</div>
+                    <div class="time-label">{{ $lesson['date'] }}</div>
+                    <div class="time-value">{{ $lesson['time'] }}</div>
                 </div>
                 <div class="lesson-actions">
-                    <button class="btn btn-primary">Join</button>
+                    <button class="btn btn-primary">{{ $lesson['date'] == 'Tomorrow' ? 'Join' : 'Details' }}</button>
                     <button class="btn btn-outline">Cancel</button>
                 </div>
             </div>
-            
-            <div class="lesson-item">
-                <div class="lesson-avatar green">EW</div>
-                <div class="lesson-details">
-                    <div class="lesson-title">Grammar Workshop</div>
-                    <div class="lesson-teacher">with Emma Wilson</div>
-                </div>
-                <div class="lesson-time">
-                    <div class="time-label">Jan 15</div>
-                    <div class="time-value">2:00 PM</div>
-                </div>
-                <div class="lesson-actions">
-                    <button class="btn btn-primary">Details</button>
-                    <button class="btn btn-outline">Cancel</button>
-                </div>
-            </div>
+            @empty
+            <p style="text-align: center; color: #718096; padding: 2rem;">No upcoming lessons scheduled</p>
+            @endforelse
         </div>
         
         <!-- Quick Actions -->
