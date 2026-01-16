@@ -240,6 +240,10 @@
         .content-grid {
             grid-template-columns: 1fr;
         }
+        
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
     
     @media (max-width: 768px) {
@@ -262,7 +266,7 @@
                     Active
                 </div>
             </div>
-            <div class="stat-value">24</div>
+            <div class="stat-value">{{ $stats['lessons_completed'] }}</div>
             <div class="stat-label">Lessons Completed</div>
         </div>
         
@@ -275,7 +279,7 @@
                     36 hrs
                 </div>
             </div>
-            <div class="stat-value">8</div>
+            <div class="stat-value">{{ $stats['credits_remaining'] }}</div>
             <div class="stat-label">Credits Remaining</div>
         </div>
         
@@ -288,7 +292,7 @@
                     +2
                 </div>
             </div>
-            <div class="stat-value">3</div>
+            <div class="stat-value">{{ $stats['certificates_earned'] }}</div>
             <div class="stat-label">Certificates Earned</div>
         </div>
         
@@ -298,10 +302,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #DBEAFE; color: #3B82F6;">
-                    B2
+                    {{ $stats['next_level'] }}
                 </div>
             </div>
-            <div class="stat-value">B1+</div>
+            <div class="stat-value">{{ $stats['current_level'] }}</div>
             <div class="stat-label">Current Level</div>
         </div>
     </div>
