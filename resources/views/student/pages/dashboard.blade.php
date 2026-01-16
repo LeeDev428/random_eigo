@@ -7,7 +7,7 @@
 <style>
     .stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
         margin-bottom: 2rem;
     }
@@ -298,13 +298,6 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
                 </div>
                 <div class="stat-badge" style="background: #DBEAFE; color: #3B82F6;">
-                    B2
-                </div>
-            </div>
-            <div class="stat-value">B1+</div>
-            <div class="stat-label">Current Level</div>
-        </div>
-    </div>
                     B2
                 </div>
             </div>
