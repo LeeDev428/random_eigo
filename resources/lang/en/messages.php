@@ -106,4 +106,15 @@ return [
     'access_course_resources' => 'Access course resources',
     'get_help' => 'Get Help',
     'contact_support_team' => 'Contact support team',
+    
+    // Sidebar Navigation - Student
+    'courses_payment' => 'Courses & Payment',
+    'lesson_history' => 'Lesson History',
+    'my_profile' => 'My Profile',
+    'contact_us' => 'Contact Us',
+    
+    // Common Messages
+    'confirm_logout' => 'Are you sure you want to logout?',
+    'today' => 'Today',
+    'welcome_back_student' => 'Welcome back! Ready to continue learning?',
 ];
