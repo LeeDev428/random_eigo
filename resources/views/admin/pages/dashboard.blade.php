@@ -216,8 +216,8 @@
 @section('content')
     <!-- Welcome Banner -->
     <div class="welcome-banner">
-        <h2>Welcome back, Ms. Sarah! 👋</h2>
-        <p>You have 4 classes scheduled for today. Keep up the great work!</p>
+        <h2>Welcome back, {{ Auth::user()->name }}! 👋</h2>
+        <p>You have {{ count($todaySchedule) }} classes scheduled for today. Keep up the great work!</p>
     </div>
     
     <!-- Stats Cards -->
@@ -231,7 +231,7 @@
                     This Month
                 </div>
             </div>
-            <div class="stat-value">156</div>
+            <div class="stat-value">{{ $stats['lessons_conducted'] }}</div>
             <div class="stat-label">Lessons Conducted</div>
         </div>
         
@@ -244,7 +244,7 @@
                     Active
                 </div>
             </div>
-            <div class="stat-value">48</div>
+            <div class="stat-value">{{ $stats['total_students'] }}</div>
             <div class="stat-label">Total Students</div>
         </div>
         
@@ -257,7 +257,7 @@
                     Pending
                 </div>
             </div>
-            <div class="stat-value">12</div>
+            <div class="stat-value">{{ $stats['assignments_to_grade'] }}</div>
             <div class="stat-label">Assignments to Grade</div>
         </div>
         
@@ -270,27 +270,7 @@
                     Average
                 </div>
             </div>
-            <div class="stat-value">4.8</div>
-            <div class="stat-label">Student Rating</div>
-        </div>
-    </div>
-                    Pending
-                </div>
-            </div>
-            <div class="stat-value">12</div>
-            <div class="stat-label">Assignments to Grade</div>
-        </div>
-        
-        <div class="stat-card">
-            <div class="stat-header">
-                <div class="stat-icon" style="background: #FCE7F3;">
-                    ⭐
-                </div>
-                <div class="stat-badge" style="background: #E0E7FF; color: #6366F1;">
-                    Average
-                </div>
-            </div>
-            <div class="stat-value">4.8</div>
+            <div class="stat-value">{{ $stats['student_rating'] }}</div>
             <div class="stat-label">Student Rating</div>
         </div>
     </div>
@@ -304,32 +284,18 @@
                 <a href="{{ route('admin.schedule') }}" class="view-all-link">View All</a>
             </div>
             
-            <div class="schedule-item">
+            @forelse($todaySchedule as $schedule)
+            <div class="schedule-item {{ $schedule['color'] == 'blue' ? 'blue' : '' }}">
                 <div class="schedule-time">
-                    <span class="time-label">8:00 - 9:30 AM</span>
-                    <span class="time-badge">Online</span>
+                    <span class="time-label" style="color: {{ $schedule['color'] == 'blue' ? '#3B82F6' : '#00B86B' }};">{{ $schedule['time'] }}</span>
+                    <span class="time-badge" style="background: {{ $schedule['color'] == 'blue' ? '#DBEAFE' : '#E0F7EE' }}; color: {{ $schedule['color'] == 'blue' ? '#3B82F6' : '#00B86B' }};">{{ $schedule['badge'] }}</span>
                 </div>
-                <div class="schedule-title">Business English - Advanced</div>
-                <div class="schedule-description">Presentations & Negotiations</div>
+                <div class="schedule-title">{{ $schedule['title'] }}</div>
+                <div class="schedule-description">{{ $schedule['description'] }}</div>
             </div>
-            
-            <div class="schedule-item blue">
-                <div class="schedule-time">
-                    <span class="time-label" style="color: #3B82F6;">10:00 - 11:30 AM</span>
-                    <span class="time-badge" style="background: #DBEAFE; color: #3B82F6;">Online</span>
-                </div>
-                <div class="schedule-title">IELTS Preparation</div>
-                <div class="schedule-description">Speaking Practice Session</div>
-            </div>
-            
-            <div class="schedule-item">
-                <div class="schedule-time">
-                    <span class="time-label">2:00 - 3:30 PM</span>
-                    <span class="time-badge">Online</span>
-                </div>
-                <div class="schedule-title">Grammar Workshop</div>
-                <div class="schedule-description">Advanced Tenses Review</div>
-            </div>
+            @empty
+            <p style="text-align: center; color: #64748B; padding: 2rem;">No classes scheduled for today</p>
+            @endforelse
         </div>
         
         <!-- Announcements -->
@@ -338,23 +304,15 @@
                 <h2 class="section-title">Announcements</h2>
             </div>
             
-            <div class="announcement-item">
-                <div class="announcement-title">Staff Meeting</div>
-                <div class="announcement-meta">Friday, 3:00 PM - Conference Room A</div>
-                <div class="announcement-description">Monthly review and planning session</div>
+            @forelse($announcements as $announcement)
+            <div class="announcement-item {{ $announcement['color'] == 'orange' ? 'orange' : '' }}">
+                <div class="announcement-title">{{ $announcement['title'] }}</div>
+                <div class="announcement-meta">{{ $announcement['meta'] }}</div>
+                <div class="announcement-description">{{ $announcement['description'] }}</div>
             </div>
-            
-            <div class="announcement-item orange">
-                <div class="announcement-title">Grade Submission Deadline</div>
-                <div class="announcement-meta">Submit Q2 grades by Dec 15</div>
-                <div class="announcement-description">Please complete all pending evaluations</div>
-            </div>
-            
-            <div class="announcement-item">
-                <div class="announcement-title">New Course Materials</div>
-                <div class="announcement-meta">Updated resources available</div>
-                <div class="announcement-description">Business English module has been updated</div>
-            </div>
+            @empty
+            <p style="text-align: center; color: #64748B; padding: 1.5rem;">No announcements</p>
+            @endforelse
         </div>
     </div>
 @endsection
