@@ -26,10 +26,10 @@
         <div class="progress-bar">
             <div class="progress-label">
                 <span>{{ __('messages.course_progress') }}</span>
-                <span>{{ isset($stats) ? $stats['course_progress'] : 75 }}%</span>
+                <span>{{ isset($stats) && $stats->weekly_goal_total > 0 ? round(($stats->weekly_goal_current / $stats->weekly_goal_total) * 100) : 75 }}%</span>
             </div>
             <div class="progress-track">
-                <div class="progress-fill" style="width: {{ isset($stats) ? $stats['course_progress'] : 75 }}%"></div>
+                <div class="progress-fill" style="width: {{ isset($stats) && $stats->weekly_goal_total > 0 ? round(($stats->weekly_goal_current / $stats->weekly_goal_total) * 100) : 75 }}%"></div>
             </div>
         </div>
     </div>
