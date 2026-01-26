@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\LessonHistoryController;
 
 // Admin routes - Protected by auth middleware and admin role
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -24,6 +25,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/materials', [MaterialController::class, 'index'])->name('materials');
     Route::post('/materials', [MaterialController::class, 'store'])->name('materials.store');
     Route::delete('/materials/{id}', [MaterialController::class, 'destroy'])->name('materials.destroy');
+    
+    // Lesson History
+    Route::get('/history', [LessonHistoryController::class, 'index'])->name('history');
     
     // Students Management
     Route::get('/students', [StudentController::class, 'index'])->name('students');
