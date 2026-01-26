@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lesson;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -13,67 +16,36 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $teacher = Auth::user();
+        $today = Carbon::today();
         
-        // Mock data - replace with actual database queries
+        // Calculate stats
         $stats = [
-            'lessons_conducted' => 156,
-            'total_students' => 48,
-            'assignments_to_grade' => 12,
-            'student_rating' => 4.8,
+            'lessons_conducted' => Lesson::where('teacher_id', $teacher->id)
+                ->where('status', 'completed')
+                ->whereMonth('lesson_date', Carbon::now()->month)
+                ->count(),
+            'total_students' => User::where('role', 'student')->count(),
+            'assignments_to_grade' => 12, // Placeholder for future implementation
+            'student_rating' => 4.8, // Placeholder for future implementation
         ];
         
-        $todaySchedule = [
-            [
-                'id' => 1,
-                'title' => 'Business English - Advanced',
-                'description' => 'Presentations & Negotiations',
-                'time' => '8:00 - 9:30 AM',
-                'badge' => 'Online',
-                'color' => 'green'
-            ],
-            [
-                'id' => 2,
-                'title' => 'IELTS Preparation',
-                'description' => 'Speaking Practice Session',
-                'time' => '10:00 - 11:30 AM',
-                'badge' => 'Online',
-                'color' => 'blue'
-            ],
-            [
-                'id' => 3,
-                'title' => 'Grammar Workshop',
-                'description' => 'Advanced Tenses Review',
-                'time' => '2:00 - 3:30 PM',
-                'badge' => 'Online',
-                'color' => 'green'
-            ],
-        ];
+        // Get today's schedule
+        $todaySchedule = Lesson::where('teacher_id', $teacher->id)
+            ->whereDate('lesson_date', $today)
+            ->where('status', 'scheduled')
+            ->orderBy('start_time')
+            ->get();
         
-        $announcements = [
-            [
-                'id' => 1,
-                'title' => 'Staff Meeting',
-                'meta' => 'Friday, 3:00 PM - Conference Room A',
-                'description' => 'Monthly review and planning session',
-                'color' => 'blue'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Grade Submission Deadline',
-                'meta' => 'Submit Q2 grades by Dec 15',
-                'description' => 'Please complete all pending evaluations',
-                'color' => 'orange'
-            ],
-            [
-                'id' => 3,
-                'title' => 'New Course Materials',
-                'meta' => 'Updated resources available',
-                'description' => 'Business English module has been updated',
-                'color' => 'blue'
-            ],
-        ];
+        // Get upcoming lessons (next 3 days)
+        $upcomingLessons = Lesson::where('teacher_id', $teacher->id)
+            ->whereDate('lesson_date', '>', $today)
+            ->whereDate('lesson_date', '<=', $today->copy()->addDays(3))
+            ->where('status', 'scheduled')
+            ->orderBy('lesson_date')
+            ->orderBy('start_time')
+            ->get();
         
-        return view('admin.pages.dashboard', compact('user', 'stats', 'todaySchedule', 'announcements'));
+        return view('admin.pages.dashboard', compact('teacher', 'stats', 'todaySchedule', 'upcomingLessons'));
     }
 }
