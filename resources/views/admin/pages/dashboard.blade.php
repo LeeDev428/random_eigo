@@ -288,7 +288,7 @@
     <!-- Welcome Banner -->
     <div class="welcome-banner">
         <h2>{{ __('messages.welcome_back', ['name' => Auth::user()->name]) }} 👋</h2>
-        <p>{{ __('messages.classes_scheduled_today', ['count' => count($todaySchedule)]) }}</p>
+        <p>You have {{ count($todaySchedule) }} classes scheduled for today. Keep up the great work!</p>
     </div>
     
     <!-- Stats Cards -->
@@ -355,34 +355,46 @@
                 <a href="{{ route('admin.schedule') }}" class="view-all-link">{{ __('messages.view_all') }}</a>
             </div>
             
-            @forelse($todaySchedule as $schedule)
-            <div class="schedule-item {{ $schedule['color'] == 'blue' ? 'blue' : '' }}">
+            @forelse($todaySchedule as $lesson)
+            <div class="schedule-item">
                 <div class="schedule-time">
-                    <span class="time-label" style="color: {{ $schedule['color'] == 'blue' ? '#3B82F6' : '#00B86B' }};">{{ $schedule['time'] }}</span>
-                    <span class="time-badge" style="background: {{ $schedule['color'] == 'blue' ? '#DBEAFE' : '#E0F7EE' }}; color: {{ $schedule['color'] == 'blue' ? '#3B82F6' : '#00B86B' }};">{{ $schedule['badge'] }}</span>
+                    <span class="time-label" style="color: #00B86B;">
+                        {{ \Carbon\Carbon::parse($lesson->start_time)->format('g:i A') }} - 
+                        {{ \Carbon\Carbon::parse($lesson->end_time)->format('g:i A') }}
+                    </span>
                 </div>
-                <div class="schedule-title">{{ $schedule['title'] }}</div>
-                <div class="schedule-description">{{ $schedule['description'] }}</div>
+                <div class="schedule-title">{{ $lesson->lesson_type }} – {{ $lesson->level }}</div>
+                <div class="schedule-description">{{ $lesson->student_name }}</div>
+                @if($lesson->request_notes)
+                    <div class="schedule-description" style="font-size: 0.85rem; margin-top: 0.5rem;">
+                        📝 {{ $lesson->request_notes }}
+                    </div>
+                @endif
             </div>
             @empty
             <p style="text-align: center; color: #64748B; padding: 2rem;">{{ __('messages.no_classes_today') }}</p>
             @endforelse
         </div>
         
-        <!-- Announcements -->
+        <!-- Upcoming Lessons -->
         <div class="section-card">
             <div class="section-header">
-                <h2 class="section-title">{{ __('messages.announcements') }}</h2>
+                <h2 class="section-title">{{ __('messages.upcoming_lessons') }}</h2>
+                <span class="view-all-link">Next 3 Days</span>
             </div>
             
-            @forelse($announcements as $announcement)
-            <div class="announcement-item {{ $announcement['color'] == 'orange' ? 'orange' : '' }}">
-                <div class="announcement-title">{{ $announcement['title'] }}</div>
-                <div class="announcement-meta">{{ $announcement['meta'] }}</div>
-                <div class="announcement-description">{{ $announcement['description'] }}</div>
+            @forelse($upcomingLessons as $lesson)
+            <div class="announcement-item">
+                <div class="announcement-title">{{ $lesson->student_name }}</div>
+                <div class="announcement-meta">
+                    {{ $lesson->lesson_type }} • 
+                    {{ $lesson->lesson_date->format('M d') }} • 
+                    {{ \Carbon\Carbon::parse($lesson->start_time)->format('g:i A') }} - 
+                    {{ \Carbon\Carbon::parse($lesson->end_time)->format('g:i A') }}
+                </div>
             </div>
             @empty
-            <p style="text-align: center; color: #64748B; padding: 1.5rem;">{{ __('messages.no_announcements') }}</p>
+            <p style="text-align: center; color: #64748B; padding: 1.5rem;">No upcoming lessons in the next 3 days</p>
             @endforelse
         </div>
     </div>
