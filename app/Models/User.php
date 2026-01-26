@@ -78,4 +78,44 @@ class User extends Authenticatable
     {
         return $this->hasMany(Material::class, 'teacher_id');
     }
+
+    /**
+     * Get student stats.
+     */
+    public function studentStats()
+    {
+        return $this->hasOne(StudentStats::class, 'student_id');
+    }
+
+    /**
+     * Get student certificates.
+     */
+    public function certificates()
+    {
+        return $this->hasMany(Certificate::class, 'student_id');
+    }
+
+    /**
+     * Get student enrollments.
+     */
+    public function enrollments()
+    {
+        return $this->hasMany(CourseEnrollment::class, 'student_id');
+    }
+
+    /**
+     * Get student payments.
+     */
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, 'student_id');
+    }
+
+    /**
+     * Get lesson ratings by student.
+     */
+    public function lessonRatings()
+    {
+        return $this->hasMany(LessonRating::class, 'student_id');
+    }
 }
