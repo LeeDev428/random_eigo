@@ -42,4 +42,12 @@ class Lesson extends Model
     {
         return $this->belongsTo(User::class, 'student_id');
     }
+
+    /**
+     * Get the lesson rating.
+     */
+    public function lessonRating()
+    {
+        return $this->hasOne(LessonRating::class);
+    }
 }
