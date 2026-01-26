@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MaterialController extends Controller
 {
-    /**
-     * Display the materials page.
-     */
     public function index()
     {
-        return view('student.pages.materials');
+        // Get all materials (students can access all teacher-uploaded materials)
+        $materials = Material::latest()->get();
+        
+        return view('student.pages.materials', compact('materials'));
     }
 
-    /**
-     * Download a specific material.
-     */
     public function download($id)
     {
-        // TODO: Implement material download logic
-        return redirect()->route('student.materials');
+        $material = Material::findOrFail($id);
+        
+        return Storage::disk('public')->download($material->file_path, $material->file_name);
     }
 }
