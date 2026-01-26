@@ -343,7 +343,7 @@
     @empty
         <div style="text-align: center; padding: 3rem; background: white; border-radius: 12px;">
             <p style="color: #94A3B8; margin-bottom: 1rem;">No lessons completed yet</p>
-            <a href="{{ route('student.book-lesson') }}" style="color: #00B86B; text-decoration: none; font-weight: 600;">Book your first lesson →</a>
+            <a href="{{ route('student.lessons.book') }}" style="color: #00B86B; text-decoration: none; font-weight: 600;">Book your first lesson →</a>
         </div>
     @endforelse
 </div>
