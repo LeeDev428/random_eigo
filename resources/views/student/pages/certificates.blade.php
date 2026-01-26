@@ -336,7 +336,7 @@
             <div style="font-size: 4rem; margin-bottom: 1rem;">🎓</div>
             <h3 style="color: #1E293B; margin-bottom: 0.5rem;">No certificates earned yet</h3>
             <p style="color: #94A3B8; margin-bottom: 1.5rem;">Complete lessons to earn your first certificate</p>
-            <a href="{{ route('student.book-lesson') }}" style="display: inline-block; padding: 0.75rem 2rem; background: #00B86B; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Start Learning</a>
+            <a href="{{ route('student.lessons.book') }}" style="display: inline-block; padding: 0.75rem 2rem; background: #00B86B; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">Start Learning</a>
         </div>
     @endforelse
 </div>
