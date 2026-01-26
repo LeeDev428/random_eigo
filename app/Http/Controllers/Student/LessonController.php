@@ -61,7 +61,17 @@ class LessonController extends Controller
             ->orderBy('lesson_date', 'desc')
             ->get();
         
-        return view('student.pages.lesson-history', compact('lessons'));
+        // Calculate stats
+        $completedLessons = $lessons->where('status', 'completed')->count();
+        $totalHours = round($completedLessons * 0.83); // Assuming 50 min lessons
+        $averageRating = $lessons->filter(function($lesson) {
+            return $lesson->lessonRating !== null;
+        })->avg(function($lesson) {
+            return $lesson->lessonRating->rating;
+        }) ?? 0;
+        $averageRating = round($averageRating, 1);
+        
+        return view('student.pages.lesson-history', compact('lessons', 'completedLessons', 'totalHours', 'averageRating'));
     }
     
     public function rate(Request $request, $id)
