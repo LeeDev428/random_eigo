@@ -39,7 +39,7 @@ class ScheduleController extends Controller
             $weeklySchedule[$date->format('Y-m-d')] = [
                 'date' => $date,
                 'lessons' => $lessons->filter(function ($lesson) use ($date) {
-                    return $lesson->lesson_date->isSameDay($date);
+                    return $lesson->lesson_date->format('Y-m-d') === $date->format('Y-m-d');
                 })
             ];
         }
