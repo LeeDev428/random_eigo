@@ -46,4 +46,36 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the teacher profile.
+     */
+    public function teacherProfile()
+    {
+        return $this->hasOne(TeacherProfile::class);
+    }
+
+    /**
+     * Get lessons as teacher.
+     */
+    public function teachingLessons()
+    {
+        return $this->hasMany(Lesson::class, 'teacher_id');
+    }
+
+    /**
+     * Get lessons as student.
+     */
+    public function studentLessons()
+    {
+        return $this->hasMany(Lesson::class, 'student_id');
+    }
+
+    /**
+     * Get materials uploaded by teacher.
+     */
+    public function materials()
+    {
+        return $this->hasMany(Material::class, 'teacher_id');
+    }
 }
