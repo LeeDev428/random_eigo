@@ -21,3 +21,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Include role-specific routes
 require __DIR__.'/student.php';
 require __DIR__.'/admin.php';
+require __DIR__.'/superadmin.php';
