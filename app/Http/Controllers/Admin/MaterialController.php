@@ -39,7 +39,7 @@ class MaterialController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|string',
-            'file' => 'required|file|max:10240', // Max 10MB
+            'file' => 'required|file|max:10240|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt,csv,jpg,jpeg,png,gif,mp3,mp4,zip', // Max 10MB
         ]);
         
         if ($request->hasFile('file')) {
@@ -65,7 +65,7 @@ class MaterialController extends Controller
      */
     public function destroy($id)
     {
-        $material = Material::findOrFail($id);
+        $material = Material::where('id', $id)->where('teacher_id', Auth::id())->firstOrFail();
         
         // Delete file from storage
         Storage::disk('public')->delete($material->file_path);
