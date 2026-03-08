@@ -3,16 +3,38 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
     /**
-     * Display the students list.
+     * Display the students list (students who have lessons with this teacher).
      */
     public function index()
     {
-        return view('admin.pages.students');
+        $teacher = Auth::user();
+
+        $studentIds = Lesson::where('teacher_id', $teacher->id)
+            ->pluck('student_id')
+            ->unique();
+
+        $students = User::whereIn('id', $studentIds)
+            ->where('role', 'student')
+            ->get()
+            ->map(function ($student) use ($teacher) {
+                $student->total_lessons = Lesson::where('teacher_id', $teacher->id)
+                    ->where('student_id', $student->id)->count();
+                $student->completed_lessons = Lesson::where('teacher_id', $teacher->id)
+                    ->where('student_id', $student->id)->where('status', 'completed')->count();
+                $student->last_lesson = Lesson::where('teacher_id', $teacher->id)
+                    ->where('student_id', $student->id)->latest('lesson_date')->first();
+                return $student;
+            });
+
+        return view('admin.pages.students', compact('students'));
     }
 
     /**
@@ -20,8 +42,15 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        // TODO: Implement student details view
-        return view('admin.pages.student-details', compact('id'));
+        $teacher = Auth::user();
+        $student = User::findOrFail($id);
+
+        $lessons = Lesson::where('teacher_id', $teacher->id)
+            ->where('student_id', $student->id)
+            ->orderBy('lesson_date', 'desc')
+            ->get();
+
+        return view('admin.pages.student-details', compact('student', 'lessons'));
     }
 
     /**
@@ -29,7 +58,6 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // TODO: Implement student update logic
         return redirect()->route('admin.students');
     }
 }
