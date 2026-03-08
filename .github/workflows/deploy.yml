@@ -71,6 +71,7 @@ jobs:
           ln -sfn ~/random_eigo/storage/app/public ~/random_eigo/public/storage
           chmod -R 775 storage bootstrap/cache
           php artisan migrate --force
+          php artisan db:seed --force
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
