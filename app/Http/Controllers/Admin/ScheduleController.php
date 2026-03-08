@@ -76,7 +76,7 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $lesson = Lesson::findOrFail($id);
+        $lesson = Lesson::where('id', $id)->where('teacher_id', Auth::id())->firstOrFail();
         
         $validated = $request->validate([
             'lesson_date' => 'sometimes|date',
@@ -96,7 +96,7 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        $lesson = Lesson::findOrFail($id);
+        $lesson = Lesson::where('id', $id)->where('teacher_id', Auth::id())->firstOrFail();
         $lesson->delete();
         
         return redirect()->route('admin.schedule')->with('success', 'Lesson deleted successfully');
