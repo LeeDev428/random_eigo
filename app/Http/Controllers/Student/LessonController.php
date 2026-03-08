@@ -82,7 +82,7 @@ class LessonController extends Controller
         ]);
         
         $student = Auth::user();
-        $lesson = Lesson::findOrFail($id);
+        $lesson = Lesson::where('id', $id)->where('student_id', $student->id)->firstOrFail();
         
         LessonRating::updateOrCreate(
             [
