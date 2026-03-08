@@ -303,7 +303,7 @@ class DemoDataSeeder extends Seeder
             'credits_purchased' => 20,
             'credits_used' => 12,
             'status' => 'active',
-            'enrolled_at' => Carbon::now()->subMonth(),
+            'enrolled_date' => Carbon::now()->subMonth(),
         ]);
 
         // Create payment history
@@ -312,8 +312,9 @@ class DemoDataSeeder extends Seeder
             'course_id' => $standardPlan->id,
             'amount' => 12000,
             'payment_method' => 'credit_card',
-            'status' => 'completed',
-            'created_at' => Carbon::now()->subMonth(),
+            'description' => 'Standard Plan - Monthly Payment',
+            'status' => 'paid',
+            'payment_date' => Carbon::now()->subMonth(),
         ]);
 
         Payment::create([
@@ -321,8 +322,9 @@ class DemoDataSeeder extends Seeder
             'course_id' => $standardPlan->id,
             'amount' => 12000,
             'payment_method' => 'credit_card',
-            'status' => 'completed',
-            'created_at' => Carbon::now()->subMonths(2),
+            'description' => 'Standard Plan - Monthly Payment',
+            'status' => 'paid',
+            'payment_date' => Carbon::now()->subMonths(2),
         ]);
 
         // Create lessons for student with ratings
@@ -345,7 +347,7 @@ class DemoDataSeeder extends Seeder
                 LessonRating::create([
                     'lesson_id' => $lesson->id,
                     'student_id' => $mainStudent->id,
-                    'rating' => rand(4, 5),
+                    'rating' => (string) rand(4, 5),
                     'comment' => 'Great lesson! Very helpful teacher.',
                 ]);
             }
